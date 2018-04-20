@@ -1,3 +1,4 @@
+<?php include('server.php');?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,39 +7,30 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
     <title>Sim replacement form</title>
-
-
     <link href="css.css" rel="stylesheet">
-
     <link href="form-validation.css" rel="stylesheet">
   </head>
 
   <body class="bg-light">
-
     <div class="container">
-      <img class="mb-4" src="unam11.jpg" alt="" width="500" height="200">
-
-        <!-- <p class="lead"><strong>Please complete the form below</strong></p> -->
-
+      <!-- <img class="mb-4" src="unam11.jpg" alt="" width="500" height="200"> -->
       <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
-
         </div>
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">SIM REPLACEMENT FORM</h4>
-          <form class="needs-validation" novalidate action="database.php" method="post">
+          <form class="needs-validation" novalidate action="register.php" method="post">
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="firstName" name="fname" placeholder="" required>
                 <div class="invalid-feedback">Valid first name is required.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="lastName" name="lname" placeholder="" required>
                 <div class="invalid-feedback">
                   Valid last name is required.
                 </div>
@@ -50,7 +42,7 @@
                 <!-- <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div> -->
-                <input type="text" class="form-control" id="username" placeholder="" required>
+                <input type="text" class="form-control" id="username" name="id" placeholder="" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Your ID/Passport is required.
                 </div>
@@ -59,7 +51,7 @@
             <div class="mb-3">
               <label for="username">IMSI Number(old)</label>
               <div class="input-group">
-                <input type="text" class="form-control" id="username" placeholder="" required>
+                <input type="text" class="form-control" id="username" name="imsi" placeholder="" required>
                 <div class="invalid-feedback" style="width: 100%;">
                   Your ID/Passport is required.
                 </div>
@@ -68,7 +60,7 @@
 
             <div class="mb-3">
               <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required="true">
               <div class="invalid-feedback">
                 Please enter a valid email address for  updates.
               </div>
@@ -76,7 +68,7 @@
 
             <div class="mb-3">
               <label for="address">Postal Address</label>
-              <input type="text" class="form-control" id="address" placeholder="P O Box/ Private Bag" required>
+              <input type="text" class="form-control" id="address" name="postal" placeholder="P O Box/ Private Bag" required>
               <div class="invalid-feedback">
                 Please enter your  address.
               </div>
@@ -84,18 +76,18 @@
 
             <div class="mb-3">
               <label for="address2">Residential Address<span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              <input type="text" class="form-control" id="address2" name="residential" placeholder="Apartment or suite">
             </div>
 
           <hr class="mb-4">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="save-info">
+              <input type="checkbox" class="custom-control-input" name="save" id="save-info">
               <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
           <hr class="mb-4">
 
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to save data</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" name="save">Continue to save data</button>
           </form>
         </div>
       </div>
@@ -122,7 +114,7 @@
         'use strict';
 
         window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          // Fetch all the forms we want to apply custom validation styles to
           var forms = document.getElementsByClassName('needs-validation');
 
           // Loop over them and prevent submission
